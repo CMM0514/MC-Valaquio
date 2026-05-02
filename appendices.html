@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appendices | Mary Claire S. Valaquio</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page-layout">
+<div id="sidenav-container"></div>
+
+  <main class="main-content">
+    <header class="page-header">
+      <p class="eyebrow">Appendices</p>
+      <h1>Supporting materials</h1>
+      <p>
+        This section is reserved for records, certificates, documentation photos,
+        evaluation forms, and other attachments required for the internship portfolio.
+      </p>
+    </header>
+
+    <section class="content-section">
+      <article class="card">
+        <h2>Documents to include</h2>
+        <ul>
+          <li>Daily Time Record</li>
+          <li>Certificate of Completion</li>
+          <li>Evaluation Form</li>
+          <li>Photos and Documentation</li>
+          <li>Other required attachments</li>
+        </ul>
+      </article>
+
+      <div class="content-grid">
+        <article class="card">
+          <h2>Appendix A</h2>
+          <p>Add the first supporting document, image, or scanned requirement here.</p>
+        </article>
+
+        <article class="card">
+          <h2>Appendix B</h2>
+          <p>Add the second supporting document, image, or scanned requirement here.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">© 2026 Mary Claire S. Valaquio. Internship Portfolio.</footer>
+  </main>
+</div>
+
+<script>
+fetch("sidenav.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("sidenav-container").innerHTML = data;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience | Mary Claire S. Valaquio</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page-layout">
+  <div id="sidenav-container"></div>
+
+  <main class="main-content">
+    <header class="page-header">
+      <p class="eyebrow">Experience</p>
+      <h1>Tasks, progress, and workplace learning</h1>
+      <p>
+        This section gathers the responsibilities I handled during training and the practical
+        skills I developed while working within an actual office environment.
+      </p>
+    </header>
+
+    <section class="content-section">
+      <div class="content-grid">
+        <article class="card">
+          <h2>Daily tasks</h2>
+          <ul>
+            <li>Assisted with office-related tasks and documentation.</li>
+            <li>Organized and encoded records as instructed by the supervisor.</li>
+            <li>Observed proper workplace procedures and communication.</li>
+            <li>Completed assigned duties with responsibility and professionalism.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Weekly progress</h2>
+          <p>
+            Each week gave me a better understanding of the agency workflow. I became more
+            familiar with assigned processes, documentation standards, and the discipline needed
+            to work well in a professional setting.
+          </p>
+        </article>
+      </div>
+
+      <article class="card">
+        <h2>Skills developed</h2>
+        <div class="info-grid">
+          <div class="info-box">
+            <span>Communication</span>
+            <strong>Clearer workplace interaction</strong>
+          </div>
+          <div class="info-box">
+            <span>Organization</span>
+            <strong>Record handling and documentation</strong>
+          </div>
+          <div class="info-box">
+            <span>Discipline</span>
+            <strong>Time management and consistency</strong>
+          </div>
+          <div class="info-box">
+            <span>Confidence</span>
+            <strong>Greater readiness for assigned tasks</strong>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">© 2026 Mary Claire S. Valaquio. Internship Portfolio.</footer>
+  </main>
+</div>
+
+<script>
+fetch("sidenav.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("sidenav-container").innerHTML = data;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mary Claire S. Valaquio | Portfolio</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-layout">
+      <div id="sidenav-container"></div>
+      <main class="main-content">
+        <section class="hero">
+          <div class="hero-content">
+            <p class="hero-kicker">BSIT - 4C / On-the-Job Training</p>
+            <h1 class="main-title">Mary Claire S. Valaquio</h1>
+            <p class="subtitle">
+              An Internship Portfolio documenting my workplace exposure,
+              learning reflections, and professional growth at Occidental
+              Mindoro Electric Cooperative.
+            </p>
+
+            <div class="hero-meta">
+              <div>
+                <span>Program</span>
+                <strong>BS Information Technology</strong>
+              </div>
+              <div>
+                <span>Agency</span>
+                <strong>OMECO</strong>
+              </div>
+              <div>
+                <span>Portfolio</span>
+                <strong>May 2026</strong>
+              </div>
+            </div>
+          </div>
+          <figure class="hero-photo">
+            <img src="assets/profile.png" alt="Mary Claire S. Valaquio" />
+          </figure>
+        </section>
+
+        <section class="home-extra-section">
+          <div class="extra-card">
+            <h2>Acknowledgement</h2>
+            <p>
+              I would like to express my sincere appreciation to everyone who
+              became part of my On-the-Job Training journey. Their guidance,
+              encouragement, and support played a significant role in making
+              this experience meaningful and successful.
+            </p>
+            <p>
+              First and foremost, I would like to extend my deepest gratitude to
+              Engr. Celso D. Garcia, General Manager of OMECO, for giving me the
+              opportunity to undergo my training in the organization and for
+              allowing me to gain valuable practical experience in a
+              professional environment.
+            </p>
+            <p>
+              I am also truly thankful to Mr. John Patrick Loyzaga, my
+              supervisor in the Technical Services Department (TSD), Network
+              Assets Services Division (Meter Laboratory), for his patience,
+              mentorship, and for sharing his knowledge throughout my
+              internship. His guidance greatly contributed to the enhancement of
+              my technical knowledge, work ethic, and professional growth.
+            </p>
+            <p>
+              My heartfelt thanks also go to Ms. Leiza Linda Pelayo, our SIP
+              Coordinator, for her consistent support, supervision, and guidance
+              during the entire duration of my training, ensuring that I
+              remained focused and on the right path.
+            </p>
+            <p>
+              To my loving family, especially my live-in partner, I am deeply
+              grateful for the unwavering love, understanding, encouragement,
+              and support throughout my On-the-Job Training journey. Your
+              constant motivation and sacrifices have been one of my greatest
+              sources of strength, inspiring me to stay focused and determined
+              in achieving this milestone.
+            </p>
+            <p>
+              Above all, I offer my deepest gratitude to Almighty God for
+              granting me wisdom, strength, and countless blessings throughout
+              this journey. His guidance and grace have helped me overcome every
+              challenge and successfully complete this important chapter of my
+              life.
+            </p>
+          </div>
+
+          <div class="extra-card">
+            <h2>Student Trainee Prayer</h2>
+            <p>
+              Thank you so much for giving me the chance to complete my
+              On-the-Job Training journey. I am truly grateful for all the
+              strength, wisdom, guidance, and blessings you have given me every
+              day.
+            </p>
+            <p>
+              Thank you for helping me through every challenge, for giving me
+              patience when things were difficult, and for guiding me as I
+              learned new skills and gained valuable experiences. Through this
+              journey, I have grown not only as a student trainee but also as a
+              person.
+            </p>
+            <p>
+              Thank you for the people you placed in my life, my supervisors,
+              coordinators, co-workers, family, and loved ones, who supported,
+              guided, and encouraged me throughout this experience
+            </p>
+            <p>
+              As I move forward, may the lessons I learned during my training
+              help me achieve my goals and prepare me for my future career.
+            </p>
+            <p>
+              Please continue to guide me, bless me, and give me the courage to
+              face whatever comes next.
+            </p>
+            <p>
+              Above all, may I always do my best and honor You in everything I
+              do.
+            </p>
+            <p>
+              May the lessons I learned during my training help me achieve my
+              goals and prepare me for my future career. Please continue to
+              guide me, bless me, and give me the courage to face whatever comes
+              next.
+            </p>
+            <p>In Jesus’ name, Amen.</p>
+          </div>
+
+          <div class="extra-card">
+            <h2>Personal Philosophy</h2>
+            <p class="quote">
+              “Success is not just about what you achieve, but who you become in
+              the process.”
+            </p>
+            <p>
+              My personal philosophy in life is to always strive for growth,
+              remain dedicated to my goals, and trust in God’s guidance in every
+              step of my journey. I believe that hard work, perseverance, and a
+              positive attitude are essential in overcoming challenges and
+              achieving success.
+            </p>
+            <p>
+              I value continuous learning because every experience, whether good
+              or difficult, teaches important lessons that help me become a
+              better person. I also believe in showing respect, kindness, and
+              gratitude to others, as these values build strong relationships
+              and create meaningful connections.
+            </p>
+            <p>
+              For me, success is not only measured by achievements but also by
+              the strength of character, determination, and faith that I develop
+              along the way. With God at the center of my life, I aim to use my
+              knowledge, skills, and experiences to create a better future for
+              myself and to positively contribute to others.
+            </p>
+          </div>
+        </section>
+
+        <footer class="footer">
+          © 2026 Mary Claire S. Valaquio. Internship Portfolio.
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
+
+<script>
+  fetch("sidenav.html")
+    .then((res) => res.text())
+    .then((data) => {
+      document.getElementById("sidenav-container").innerHTML = data;
+    });
+</script>

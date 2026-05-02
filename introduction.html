@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction | Mary Claire S. Valaquio</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-layout">
+      <div id="sidenav-container"></div>
+
+      <main class="main-content tab-page">
+        <header class="page-header reveal-on-load">
+          <p class="eyebrow">Introduction: Chapter 1</p>
+          <h1>Foundation and Framework of the Internship Program</h1>
+          <p>
+            This section presents the importance, objectives, and official time
+            and place of the On-the-Job Training experience.
+          </p>
+        </header>
+
+        <section class="content-section tab-content" aria-label="Introduction content">
+          <div class="content-grid">
+            <article class="card section-card reveal">
+              <div class="section-heading">
+                <span class="section-marker">A</span>
+                <div>
+                  <p class="section-label">Importance of Internship</p>
+                  <h2>Real workplace learning</h2>
+                </div>
+              </div>
+              <p>
+                The importance of an internship, or On-the-Job Training, is
+                that it gives students real-world experience in their chosen
+                field. It allows them to apply the knowledge and skills they
+                learned in school into actual work situations, making learning
+                more practical and meaningful.
+              </p>
+              <p>
+                Internship also helps students develop important skills such as
+                communication, teamwork, discipline, time management, and
+                professionalism. It exposes them to the real working
+                environment, helping them understand workplace expectations and
+                responsibilities.
+              </p>
+              <p>
+                Most importantly, internship prepares students for their future
+                careers by building their confidence and experience, making it
+                easier for them to adjust when they enter the workforce after
+                graduation.
+              </p>
+            </article>
+
+            <aside class="upload-placeholder reveal" aria-label="Image upload placeholder">
+              <div class="upload-icon" aria-hidden="true">
+                <span></span>
+              </div>
+              <strong>Upload Image Here</strong>
+              <p>Suggested image: student trainee or workplace orientation photo.</p>
+            </aside>
+          </div>
+
+          <article class="card section-card reveal">
+            <div class="section-heading">
+              <span class="section-marker">B</span>
+              <div>
+                <p class="section-label">Objectives of Internship</p>
+                <h2>Training goals</h2>
+              </div>
+            </div>
+            <ol class="objective-list">
+              <li>
+                To provide students with real-world experience related to their
+                chosen field and help them apply the knowledge they learned in
+                school into actual work situations.
+              </li>
+              <li>
+                To develop and enhance students' technical, practical, and
+                professional skills through hands-on training and exposure to
+                workplace tasks.
+              </li>
+              <li>
+                To improve important work values such as discipline,
+                responsibility, communication skills, teamwork, and time
+                management.
+              </li>
+              <li>
+                To help students become familiar with the workplace environment,
+                understand organizational procedures, and learn how to handle
+                different tasks and challenges.
+              </li>
+              <li>
+                To prepare students for their future careers by building their
+                confidence, experience, and readiness for employment after
+                graduation.
+              </li>
+            </ol>
+          </article>
+
+          <div class="content-grid">
+            <article class="card section-card reveal">
+              <div class="section-heading">
+                <span class="section-marker">C</span>
+                <div>
+                  <p class="section-label">Time and Place of Internship</p>
+                  <h2>Training details</h2>
+                </div>
+              </div>
+
+              <div class="details-table" role="table" aria-label="Internship time and place">
+                <div role="row">
+                  <span role="cell">Agency</span>
+                  <strong role="cell">Occidental Mindoro Electric Cooperative, Inc.</strong>
+                </div>
+                <div role="row">
+                  <span role="cell">Address</span>
+                  <strong role="cell">
+                    M.H. Del Pilar Street, Brgy. 6, San Jose, Occidental Mindoro
+                  </strong>
+                </div>
+                <div role="row">
+                  <span role="cell">Duration</span>
+                  <strong role="cell">486 Hours</strong>
+                </div>
+                <div role="row">
+                  <span role="cell">Date Started</span>
+                  <strong role="cell">February 5, 2026</strong>
+                </div>
+                <div role="row">
+                  <span role="cell">Date Ended</span>
+                  <strong role="cell">April 30, 2026</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="card section-card reveal">
+              <div class="section-heading">
+                <span class="section-marker">T</span>
+                <div>
+                  <p class="section-label">Daily Schedule</p>
+                  <h2>Training hours</h2>
+                </div>
+              </div>
+
+              <div class="schedule-grid">
+                <div class="schedule-block">
+                  <span>Morning</span>
+                  <strong>8:00 AM - 12:00 PM</strong>
+                  <p>Monday - Friday</p>
+                </div>
+                <div class="schedule-block">
+                  <span>Afternoon</span>
+                  <strong>1:00 PM - 5:00 PM</strong>
+                  <p>Monday - Friday</p>
+                </div>
+              </div>
+
+              <div class="upload-placeholder compact" aria-label="Schedule image placeholder">
+                <div class="upload-icon" aria-hidden="true">
+                  <span></span>
+                </div>
+                <strong>Upload Image Here</strong>
+                <p>Suggested image: attendance log, office facade, or training area.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <footer class="footer">
+          &copy; 2026 Mary Claire S. Valaquio. Internship Portfolio.
+        </footer>
+      </main>
+    </div>
+
+    <script src="assets/page-animations.js"></script>
+    <script>
+      fetch("sidenav.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("sidenav-container").innerHTML = data;
+          const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+          document.querySelectorAll(".sidenav-nav a").forEach((link) => {
+            link.classList.toggle("active", link.getAttribute("href") === currentPage);
+            if (link.getAttribute("href") === currentPage) {
+              link.setAttribute("aria-current", "page");
+            }
+          });
+        });
+    </script>
+  </body>
+</html>

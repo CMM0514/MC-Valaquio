@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="assets/style.css" />
+
+<aside class="sidenav">
+        <div class="sidenav-header">
+          <h2>Mary Claire S. Valaquio</h2>
+          <p>Internship Portfolio</p>
+        </div>
+
+        <nav class="sidenav-nav" aria-label="Portfolio navigation">
+          <a href="index.html">Home</a>
+          <a href="introduction.html">I. Introduction</a>
+          <a href="company-profile.html">II. Company Profile</a>
+          <a href="work-experiences.html">III. Work Experience</a>
+          <a href="assessment.html">IV. Assessment</a>
+          <a href="appendices.html"> Appendices</a>
+        </nav>
+      </aside>
+
+<script>
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".sidenav-nav a").forEach((link) => {
+    link.classList.remove("active");
+    link.removeAttribute("aria-current");
+
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+      link.setAttribute("aria-current", "page");
+    }
+  });
+</script>
