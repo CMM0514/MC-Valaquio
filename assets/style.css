@@ -32,7 +32,7 @@ body {
   font-family: "Inter", "Poppins", Arial, sans-serif;
   line-height: 1.7;
   min-height: 100vh;
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 img {
@@ -49,9 +49,9 @@ a {
 }
 
 .sidenav {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,6 +59,7 @@ a {
   width: 100%;
   padding: 20px clamp(20px, 5vw, 72px);
   border-bottom: 1px solid var(--line);
+  background: rgba(15, 44, 85, 0.82);
   backdrop-filter: blur(16px);
 }
 
@@ -186,13 +187,13 @@ a {
 .hero-content {
   max-width: 620px;
   justify-self: end;
-  transform: translateY(15px);
+  transform: translateY(90px);
 }
 
 .hero-photo {
   position: relative;
   display: flex;
-  align-items: flex-end;   
+  align-items: flex-end;
   justify-content: center;
 
   width: min(360px, 100%);
@@ -206,9 +207,9 @@ a {
   bottom: 0;
   right: 0;
 
-  width: 100%;
+  width: 110%;
   height: 100%;
-  transform: translateX(55%); 
+    transform: translateX(70%) translateY(50px);
   background: #0f2c55;
   border-radius: 180px 180px 20px 20px;
 
@@ -221,7 +222,7 @@ a {
   position: absolute;
   left: 0;
   bottom: 0px;
-  transform: translateX(140%);  
+  transform: translateX(180%) ;
   width: 90px;
   height: 200px;
 
@@ -235,15 +236,97 @@ a {
 .hero-photo img {
   position: relative;
   z-index: 2;
-
-  width: 180%;                
+  width: 140%;
   height: auto;
-
   object-fit: contain;
+ transform: translate(35%, 20px);
+  filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.2));
+}
 
-  transform: translateX(55%); 
+.home-page .hero {
+  min-height: 90vh;
+  padding: 40px 32px 20px;
+   display: grid;
+  align-items: center;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(30px, 4vw, 42px);
+  justify-content: center;
+  width: min(1200px, 100%);
+  margin: 0 auto;
 
-  filter: drop-shadow(0 20px 25px rgba(0,0,0,0.2));
+}
+
+.home-page .hero-content {
+  max-width: 520px;
+  justify-self: start;
+    transform: none;
+
+
+}
+
+.home-page .main-title {
+  font-size: clamp(40px, 6.4vw, 76px);
+  line-height: 1;
+   margin-bottom: 10px;
+}
+
+.home-page .subtitle {
+  max-width: 540px;
+  margin-top: 20px;
+  font-size: clamp(14px, 1.55vw, 18px);
+  margin-top: 10px;
+
+}
+
+.home-page .hero-meta {
+  gap: 12px;
+  margin-top: 30px;
+  padding-top: 20px;
+}
+
+.home-page .hero-photo {
+  width: min(290px, 100%);
+  height: 370px;
+}
+
+.home-page .hero-photo::after {
+  width: 70px;
+  height: 160px;
+}
+
+.home-page .hero-photo img {
+   width: 140%;
+    transform: translateX(70%) translateY(50px);
+}
+
+.home-page .home-extra-section {
+  width: min(1200px, calc(100% - 40px));
+   padding: 40px 0 30px;
+  border-top: 1px solid rgba(248, 250, 252, 0.38);
+}
+
+.home-page .extra-card {
+  position: relative;
+  padding: 26px 30px;
+}
+
+.home-page .extra-card + .extra-card {
+  margin-top: 8px;
+}
+
+.home-page .extra-card + .extra-card::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(248, 250, 252, 0.3);
+}
+
+.home-page .extra-card h2 {
+  font-size: 45px;
+  text-align: center;
 }
 
 .page-header {
@@ -618,7 +701,11 @@ a {
   border: 1.5px dashed rgba(71, 107, 146, 0.55);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(238, 245, 251, 0.94)),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(238, 245, 251, 0.94)
+    ),
     repeating-linear-gradient(
       -45deg,
       rgba(71, 107, 146, 0.08),
