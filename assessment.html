@@ -14,7 +14,7 @@
 <div class="page-layout">
   <div id="sidenav-container"></div>
 
-  <main class="main-content">
+  <main class="main-content tab-page">
     <header class="page-header">
       <p class="eyebrow">Reflection</p>
       <h1>Assessment and personal growth</h1>
@@ -63,6 +63,14 @@ fetch("sidenav.html")
   .then(res => res.text())
   .then(data => {
     document.getElementById("sidenav-container").innerHTML = data;
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+    document.querySelectorAll(".sidenav-nav a").forEach((link) => {
+      link.classList.toggle("active", link.getAttribute("href") === currentPage);
+      if (link.getAttribute("href") === currentPage) {
+        link.setAttribute("aria-current", "page");
+      }
+    });
   });
 </script>
 </body>

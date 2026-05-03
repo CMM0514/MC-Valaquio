@@ -17,10 +17,12 @@
   --navy: #0f2c55;
   --cyan: #3fc1d9;
   --gold: #b49b5e;
+  --nav-offset: 92px;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-offset);
 }
 
 body {
@@ -46,11 +48,14 @@ a {
 
 .page-layout {
   min-height: 100vh;
+  padding-top: var(--nav-offset);
 }
 
 .sidenav {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -244,7 +249,7 @@ a {
 }
 
 .home-page .hero {
-  min-height: 90vh;
+  min-height: calc(100vh - var(--nav-offset));
   padding: 40px 32px 20px;
    display: grid;
   align-items: center;
@@ -349,6 +354,23 @@ a {
   font-size: 17px;
 }
 
+.company-title-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 4vw, 42px);
+}
+
+.company-title-row h1 {
+  flex: 1 1 auto;
+}
+
+.company-title-row img {
+  width: clamp(140px, 17vw, 230px);
+  height: clamp(140px, 17vw, 230px);
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
 .header-line,
 .top-bar,
 .bottom-shape,
@@ -443,6 +465,10 @@ a {
 }
 
 @media (max-width: 860px) {
+  :root {
+    --nav-offset: 142px;
+  }
+
   .sidenav {
     align-items: flex-start;
     flex-direction: column;
@@ -469,6 +495,10 @@ a {
 }
 
 @media (max-width: 520px) {
+  :root {
+    --nav-offset: 176px;
+  }
+
   .sidenav {
     padding: 18px 20px;
   }
@@ -523,6 +553,22 @@ a {
 
 .tab-page {
   animation: tabFade 0.45s ease-out both;
+  min-height: 100vh;
+  scroll-margin-top: var(--nav-offset);
+}
+
+.tab-page .page-header {
+  min-height: calc(100vh - var(--nav-offset));
+  padding-top: clamp(42px, 7vw, 78px);
+  padding-bottom: clamp(42px, 7vw, 78px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tab-page .content-section {
+  padding-top: 56px;
+  padding-bottom: 104px;
 }
 
 .reveal-on-load {
@@ -823,6 +869,92 @@ a {
   gap: 12px;
 }
 
+.company-media-grid {
+  display: grid;
+  gap: 22px;
+}
+
+.org-chart-card {
+  gap: 18px;
+}
+
+.org-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid #dbe4ee;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.org-tab {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--navy);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 11px 13px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.org-tab:hover {
+  border-color: rgba(71, 107, 146, 0.28);
+  background: #eef3f8;
+  transform: translateY(-1px);
+}
+
+.org-tab.active {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: #ffffff;
+}
+
+.org-chart-viewer {
+  display: grid;
+  gap: 12px;
+}
+
+.org-chart-image-button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #dbe4ee;
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: zoom-in;
+}
+
+.org-chart-image-button img {
+  width: 100%;
+  max-height: 620px;
+  object-fit: contain;
+  padding: 14px;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.org-chart-image-button:hover img {
+  transform: scale(1.01);
+}
+
+.org-chart-viewer figcaption {
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 800;
+  text-align: center;
+}
+
 .prose-columns {
   column-count: 2;
   column-gap: 34px;
@@ -869,6 +1001,26 @@ a {
 }
 
 @media (max-width: 860px) {
+  .tab-page .page-header {
+    min-height: auto;
+    padding-top: 48px;
+    padding-bottom: 34px;
+  }
+
+  .tab-page .content-section {
+    padding-top: 28px;
+  }
+
+  .company-title-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .company-title-row img {
+    width: 128px;
+    height: 128px;
+  }
+
   .schedule-grid,
   .details-table div {
     grid-template-columns: 1fr;

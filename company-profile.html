@@ -19,7 +19,10 @@
       <main class="main-content tab-page">
         <header class="page-header reveal-on-load">
           <p class="eyebrow">II. Company Profile</p>
-          <h1>Occidental Mindoro Electric Cooperative, Inc.</h1>
+          <div class="company-title-row">
+            <h1>Occidental Mindoro Electric Cooperative, Inc.</h1>
+            <img src="assets/omeco.png" alt="OMECO logo" />
+          </div>
           <p>
             OMECO is a distribution utility serving mainland Occidental Mindoro
             through socially responsible, reliable, and community-centered
@@ -149,7 +152,7 @@
             </article>
 
             <article class="card value-card reveal">
-              <p class="section-label">C. Vision</p>
+              <p class="section-label">Vision</p>
               <h2>Reliable and sustainable power</h2>
               <p>
                 To be a financially stable electric cooperative providing
@@ -161,27 +164,9 @@
             </article>
           </div>
 
-          <div class="content-grid">
-            <aside class="upload-placeholder reveal" aria-label="Office image placeholder">
-              <div class="upload-icon" aria-hidden="true">
-                <span></span>
-              </div>
-              <strong>Upload Office Pictures Here</strong>
-              <p>Suggested images: OMECO office, training area, or service facilities.</p>
-            </aside>
-
-            <aside class="upload-placeholder reveal" aria-label="Organizational chart placeholder">
-              <div class="upload-icon" aria-hidden="true">
-                <span></span>
-              </div>
-              <strong>Upload Organizational Chart Here</strong>
-              <p>Suggested image: organizational chart by department.</p>
-            </aside>
-          </div>
-
           <article class="card section-card reveal">
             <div class="section-heading">
-              <span class="section-marker">D</span>
+              <span class="section-marker">C</span>
               <div>
                 <p class="section-label">History / Background of the Agency</p>
                 <h2>Development of OMECO</h2>
@@ -242,6 +227,53 @@
               </p>
             </div>
           </article>
+
+          <div class="company-media-grid">
+            <article class="card org-chart-card reveal">
+              <div class="section-heading">
+                <span class="section-marker">D</span>
+                <div>
+                  <p class="section-label">Organizational Chart</p>
+                  <h2>By department</h2>
+                </div>
+              </div>
+
+              <div class="org-tabs" role="tablist" aria-label="Department organizational charts">
+                <button class="org-tab active" type="button" role="tab" aria-selected="true" data-chart="assets/department/BOD.png" data-title="Board of Directors">
+                  BOD
+                </button>
+                <button class="org-tab" type="button" role="tab" aria-selected="false" data-chart="assets/department/OGM.png" data-title="Office of the General Manager">
+                  OGM
+                </button>
+                <button class="org-tab" type="button" role="tab" aria-selected="false" data-chart="assets/department/AUDIT.png" data-title="Internal Audit Department">
+                  AUDIT
+                </button>
+                <button class="org-tab" type="button" role="tab" aria-selected="false" data-chart="assets/department/FSD.png" data-title="Finance Services Department">
+                  FSD
+                </button>
+                <button class="org-tab" type="button" role="tab" aria-selected="false" data-chart="assets/department/ISD.png" data-title="Institutional Services Department">
+                  ISD
+                </button>
+                <button class="org-tab" type="button" role="tab" aria-selected="false" data-chart="assets/department/TSD.png" data-title="Technical Services Department">
+                  TSD
+                </button>
+                <button class="org-tab" type="button" role="tab" aria-selected="false" data-chart="assets/department/CPD.png" data-title="Corporate Planning Department">
+                  CPD
+                </button>
+              </div>
+
+              <figure class="org-chart-viewer">
+                <button class="org-chart-image-button" type="button" aria-label="Open selected organizational chart">
+                  <img
+                    id="orgChartImage"
+                    src="assets/department/BOD.png"
+                    alt="Board of Directors organizational chart"
+                  />
+                </button>
+                <figcaption id="orgChartCaption">Board of Directors</figcaption>
+              </figure>
+            </article>
+          </div>
         </section>
 
         <footer class="footer">
@@ -265,6 +297,31 @@
             }
           });
         });
+
+      const orgTabs = document.querySelectorAll(".org-tab");
+      const orgChartImage = document.getElementById("orgChartImage");
+      const orgChartCaption = document.getElementById("orgChartCaption");
+      const orgChartButton = document.querySelector(".org-chart-image-button");
+
+      orgTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const chartPath = tab.dataset.chart;
+          const chartTitle = tab.dataset.title;
+
+          orgTabs.forEach((item) => {
+            item.classList.toggle("active", item === tab);
+            item.setAttribute("aria-selected", item === tab ? "true" : "false");
+          });
+
+          orgChartImage.src = chartPath;
+          orgChartImage.alt = `${chartTitle} organizational chart`;
+          orgChartCaption.textContent = chartTitle;
+        });
+      });
+
+      orgChartButton.addEventListener("click", () => {
+        window.open(orgChartImage.src, "_blank", "noopener");
+      });
     </script>
   </body>
 </html>
