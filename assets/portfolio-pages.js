@@ -3,6 +3,13 @@ const modalImage = document.querySelector("#preview-image");
 const modalTitle = document.querySelector("#preview-title");
 const modalPlaceholder = document.querySelector("#preview-placeholder");
 const modalClose = document.querySelector(".preview-close");
+let galleryItems = [];
+let galleryIndex = 0;
+let galleryControls;
+let galleryStatus;
+let galleryPrev;
+let galleryNext;
+let previewLink;
 
 function setActiveNav() {
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
@@ -19,18 +26,97 @@ function setActiveNav() {
   });
 }
 
-function openPreview(src, title) {
-  modalTitle.textContent = title;
+function ensureGalleryControls() {
+  if (galleryControls) {
+    return;
+  }
+
+  galleryControls = document.createElement("div");
+  galleryControls.className = "preview-controls";
+  galleryControls.innerHTML = `
+    <button class="preview-nav" type="button" data-direction="previous">Previous</button>
+    <span class="preview-count" aria-live="polite"></span>
+    <button class="preview-nav" type="button" data-direction="next">Next</button>
+  `;
+
+  document.querySelector(".preview-content").appendChild(galleryControls);
+  galleryStatus = galleryControls.querySelector(".preview-count");
+  galleryPrev = galleryControls.querySelector('[data-direction="previous"]');
+  galleryNext = galleryControls.querySelector('[data-direction="next"]');
+
+  galleryControls.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-direction]");
+    if (!button) {
+      return;
+    }
+
+    const step = button.dataset.direction === "next" ? 1 : -1;
+    showGalleryImage(galleryIndex + step);
+  });
+}
+
+function ensurePreviewLink() {
+  if (previewLink) {
+    return;
+  }
+
+  previewLink = document.createElement("a");
+  previewLink.className = "preview-open-link";
+  previewLink.target = "_blank";
+  previewLink.rel = "noopener";
+  previewLink.textContent = "Open image";
+  document.querySelector(".preview-content").appendChild(previewLink);
+}
+
+function updateGalleryControls() {
+  ensureGalleryControls();
+  const hasMultiple = galleryItems.length > 1;
+  galleryControls.hidden = !hasMultiple;
+
+  if (!hasMultiple) {
+    return;
+  }
+
+  galleryStatus.textContent = `${galleryIndex + 1} / ${galleryItems.length}`;
+  galleryPrev.disabled = galleryIndex === 0;
+  galleryNext.disabled = galleryIndex === galleryItems.length - 1;
+}
+
+function showGalleryImage(index) {
+  const nextIndex = Number.isFinite(Number(index)) ? Number(index) : 0;
+  galleryIndex = Math.max(0, Math.min(nextIndex, galleryItems.length - 1));
+  const src = galleryItems[galleryIndex];
+
   if (src) {
-    modalImage.alt = title;
+    modalImage.alt = modalTitle.textContent;
     modalImage.src = src;
-    modalImage.hidden = false;
+    modalImage.dataset.originalSrc = src;
+    modalImage.removeAttribute("hidden");
     modalPlaceholder.hidden = true;
+    modalPlaceholder.style.display = "none";
+    ensurePreviewLink();
+    previewLink.href = src;
+    previewLink.hidden = false;
   } else {
     modalImage.removeAttribute("src");
     modalImage.hidden = true;
+    modalPlaceholder.textContent =
+      "Preview file placeholder. Replace the filename in this card when your document is ready.";
     modalPlaceholder.hidden = false;
+    modalPlaceholder.style.display = "grid";
+    ensurePreviewLink();
+    previewLink.hidden = true;
   }
+
+  updateGalleryControls();
+}
+
+function openPreview(src, title, gallery = []) {
+  modalTitle.textContent = title;
+  galleryItems = gallery.length ? gallery : src ? [src] : [];
+  const initialIndex = galleryItems.indexOf(src);
+  galleryIndex = initialIndex >= 0 ? initialIndex : 0;
+  showGalleryImage(galleryIndex);
   modal.classList.add("active");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
@@ -41,6 +127,8 @@ function closePreview() {
   modal.classList.remove("active");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
+  galleryItems = [];
+  galleryIndex = 0;
 }
 
 fetch("sidenav.html")
@@ -56,12 +144,22 @@ document.addEventListener("click", (event) => {
     return;
   }
 
-  openPreview(trigger.dataset.preview, trigger.dataset.title);
+  const gallery = trigger.dataset.gallery
+    ? trigger.dataset.gallery.split("|").filter(Boolean)
+    : [];
+
+  openPreview(trigger.dataset.preview, trigger.dataset.title, gallery);
 });
 
 modalImage.addEventListener("error", () => {
   modalImage.hidden = true;
+  modalPlaceholder.textContent = modalImage.dataset.originalSrc
+    ? `Image not found: ${modalImage.dataset.originalSrc}`
+    : "Preview file placeholder. Replace the filename in this card when your document is ready.";
   modalPlaceholder.hidden = false;
+  modalPlaceholder.style.display = "grid";
+  ensurePreviewLink();
+  previewLink.hidden = true;
 });
 
 modalClose.addEventListener("click", closePreview);
@@ -74,6 +172,18 @@ modal.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && modal.classList.contains("active")) {
     closePreview();
+  }
+
+  if (!modal.classList.contains("active") || galleryItems.length < 2) {
+    return;
+  }
+
+  if (event.key === "ArrowLeft") {
+    showGalleryImage(galleryIndex - 1);
+  }
+
+  if (event.key === "ArrowRight") {
+    showGalleryImage(galleryIndex + 1);
   }
 });
 
