@@ -10,9 +10,9 @@
           <a href="index.html">Home</a>
           <a href="introduction.html">I. Introduction</a>
           <a href="company-profile.html">II. Company Profile</a>
-          <a href="work-experiences.html">III. Work Experience</a>
-          <a href="assessment.html">IV. Assessment</a>
-          <a href="appendices.html"> Appendices</a>
+          <a href="WorkExperience.html">III. Work Experience</a>
+          <a href="Assessment.html">IV. Assessment</a>
+          <a href="Appendices.html">V. Appendices</a>
         </nav>
       </aside>
 
@@ -22,7 +22,7 @@
     link.classList.remove("active");
     link.removeAttribute("aria-current");
 
-    if (link.getAttribute("href") === currentPage) {
+    if (link.getAttribute("href").toLowerCase() === currentPage.toLowerCase()) {
       link.classList.add("active");
       link.setAttribute("aria-current", "page");
     }

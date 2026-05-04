@@ -1,77 +1,139 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reflection | Mary Claire S. Valaquio</title>
-  <link rel="stylesheet" href="assets/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assessment | Mary Claire S. Valaquio</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page-layout">
+      <div id="sidenav-container"></div>
 
-<div class="page-layout">
-  <div id="sidenav-container"></div>
+      <main class="main-content portfolio-page">
+        <header class="portfolio-header reveal-on-load">
+          <p class="chapter-kicker">Chapter IV</p>
+          <h1>Assessment of the Practicum Program</h1>
+          <p>Evaluation and Performance Review</p>
+        </header>
 
-  <main class="main-content tab-page">
-    <header class="page-header">
-      <p class="eyebrow">Reflection</p>
-      <h1>Assessment and personal growth</h1>
-      <p>
-        This section summarizes the values, habits, and professional skills strengthened
-        during the internship experience.
-      </p>
-    </header>
+        <section class="portfolio-container">
+          <div class="assessment-layout">
+            <article class="assessment-feature reveal">
+              <button
+                class="preview-frame tall"
+                type="button"
+                data-preview="assets/STUDENT INTERNSHIP EVALUATION FORM/1.jpg"
+                data-title="Student Internship Evaluation Form: Page 1"
+              >
+                <img
+                  src="assets/STUDENT INTERNSHIP EVALUATION FORM/1.jpg"
+                  alt="Student internship evaluation form page 1"
+                />
+              </button>
+              <div>
+                <p class="chapter-kicker">Evaluation Form</p>
+                <h2>Student Internship Evaluation Form</h2>
+                <p>
+                  A documented evaluation of practicum performance, workplace
+                  behavior, and professional growth during the training period.
+                </p>
+              </div>
+            </article>
 
-    <section class="content-section">
-      <div class="content-grid">
-        <article class="card">
-          <h2>Performance focus</h2>
-          <p>
-            My performance can be viewed through punctuality, responsibility, cooperation,
-            communication, quality of work, and willingness to learn from each assigned task.
-          </p>
-        </article>
+            <div class="assessment-stack">
+              <article class="detail-card reveal">
+                <span class="doc-icon">ID</span>
+                <h3>Student Details</h3>
+                <dl class="details-list">
+                  <div>
+                    <dt>Name</dt>
+                    <dd>Mary Claire S. Valaquio</dd>
+                  </div>
+                  <div>
+                    <dt>Program</dt>
+                    <dd>BS Information Technology</dd>
+                  </div>
+                  <div>
+                    <dt>Agency</dt>
+                    <dd>Occidental Mindoro Electric Cooperative</dd>
+                  </div>
+                </dl>
+              </article>
 
-        <article class="card">
-          <h2>Learning reflection</h2>
-          <p>
-            The internship helped me understand the importance of professionalism, patience,
-            teamwork, and responsibility in a real workplace environment.
-          </p>
-        </article>
+              <article class="detail-card reveal">
+                <span class="doc-icon">PE</span>
+                <h3>Performance Evaluation</h3>
+                <p>
+                  Evaluation images can be reviewed through the document preview
+                  controls below.
+                </p>
+                <div class="button-row">
+                  <button
+                    class="document-link"
+                    type="button"
+                    data-preview="assets/STUDENT INTERNSHIP EVALUATION FORM/2.jpg"
+                    data-title="Student Internship Evaluation Form: Page 2"
+                  >
+                    View Page 2
+                  </button>
+                  <button
+                    class="document-link"
+                    type="button"
+                    data-preview="assets/STUDENT INTERNSHIP EVALUATION FORM/3.jpg"
+                    data-title="Student Internship Evaluation Form: Page 3"
+                  >
+                    View Page 3
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="summary-grid">
+            <article class="summary-card reveal">
+              <span>General Comments</span>
+              <p>
+                The practicum experience helped strengthen work habits,
+                confidence, communication, and responsibility in a professional
+                setting.
+              </p>
+            </article>
+            <article class="summary-card reveal">
+              <span>Overall Rating</span>
+              <strong>Very Satisfactory</strong>
+              <div class="rating-bar" aria-label="Overall rating">
+                <span style="width: 92%"></span>
+              </div>
+            </article>
+            <article class="summary-card reveal">
+              <span>Rated By</span>
+              <p>Placement agency supervisor and authorized evaluating personnel.</p>
+            </article>
+          </div>
+        </section>
+
+        <footer class="footer">&copy; 2026 Mary Claire S. Valaquio. Internship Portfolio.</footer>
+      </main>
+    </div>
+
+    <div class="preview-modal" id="preview-modal" aria-hidden="true" role="dialog">
+      <button class="preview-close" type="button" aria-label="Close preview">&times;</button>
+      <div class="preview-content">
+        <p id="preview-title"></p>
+        <img id="preview-image" src="" alt="" />
+        <div class="preview-placeholder" id="preview-placeholder" hidden>
+          Preview file placeholder. Replace the filename in this card when your document is ready.
+        </div>
       </div>
+    </div>
 
-      <article class="card">
-        <h2>Key takeaways</h2>
-        <ul>
-          <li>Small tasks matter when they support a larger office workflow.</li>
-          <li>Clear communication helps prevent mistakes and builds trust.</li>
-          <li>Consistency and attention to detail are important professional habits.</li>
-          <li>Workplace learning improves confidence through repeated practice.</li>
-        </ul>
-      </article>
-    </section>
-
-    <footer class="footer">© 2026 Mary Claire S. Valaquio. Internship Portfolio.</footer>
-  </main>
-</div>
-
-<script>
-fetch("sidenav.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("sidenav-container").innerHTML = data;
-    const currentPage = window.location.pathname.split("/").pop() || "index.html";
-
-    document.querySelectorAll(".sidenav-nav a").forEach((link) => {
-      link.classList.toggle("active", link.getAttribute("href") === currentPage);
-      if (link.getAttribute("href") === currentPage) {
-        link.setAttribute("aria-current", "page");
-      }
-    });
-  });
-</script>
-</body>
+    <script src="assets/portfolio-pages.js"></script>
+  </body>
 </html>
