@@ -2390,6 +2390,45 @@ a {
   color: var(--ink);
 }
 
+.portfolio-page .rating-list p,
+.portfolio-page .comments-card p,
+.portfolio-page .rated-by-card li,
+.portfolio-page .assessment-fix-note {
+  color: var(--body-text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.portfolio-page .rating-list p {
+  margin-top: 6px;
+}
+
+.portfolio-page .comments-card p {
+  margin-top: 10px;
+}
+
+.portfolio-page .rated-by-card ul {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+  list-style: none;
+}
+
+.portfolio-page .rated-by-card li strong {
+  color: var(--ink);
+}
+
+.portfolio-page .assessment-fix-note {
+  margin-top: 14px;
+  border-left: 4px solid var(--gold);
+  padding: 10px 12px;
+  background: var(--subtle);
+}
+
+.portfolio-page .assessment-fix-note strong {
+  color: var(--ink);
+}
+
 .portfolio-page .assessment-meta {
   border-color: #dbe4ee;
   background: #dbe4ee;
@@ -2507,6 +2546,21 @@ a {
   background: rgba(180, 155, 94, 0.18);
   box-shadow: none;
   color: #ffffff;
+}
+
+.preview-text {
+  width: min(720px, 86vw);
+  max-height: 68vh;
+  overflow: auto;
+  border: 1px solid rgba(180, 155, 94, 0.32);
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--body-text);
+  font-size: 15px;
+  line-height: 1.75;
+  padding: 22px;
+  text-align: left;
+  white-space: pre-wrap;
 }
 
 .appendices-page .appendix-doc:hover {

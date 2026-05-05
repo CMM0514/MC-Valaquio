@@ -66,8 +66,9 @@
             </article>
             <article class="appendix-doc reveal">
               <span class="doc-icon">G</span>
+              <img class="appendix-thumb" src="assets/Application letter.png" alt="Application letter preview" />
               <h3>Application Letter</h3>
-              <button class="document-link" type="button" data-preview="" data-title="Appendix G: Application Letter">View Document</button>
+              <button class="document-link" type="button" data-preview="assets/Application letter.png" data-title="Appendix G: Application Letter">View Document</button>
             </article>
             <article class="appendix-doc reveal">
               <span class="doc-icon">H</span>
@@ -107,11 +108,9 @@
             </article>
             <article class="appendix-doc reveal">
               <span class="doc-icon">N</span>
+              <img class="appendix-thumb" src="assets/Seminar.png" alt="Pre-service seminar preview" />
               <h3>Pictures during Pre-service Seminar</h3>
-              <div class="button-row">
-                <button class="document-link" type="button" data-preview="" data-title="Appendix N: Pictures during Pre-service Seminar 1">View Image 1</button>
-                <button class="document-link" type="button" data-preview="" data-title="Appendix N: Pictures during Pre-service Seminar 2">View Image 2</button>
-              </div>
+              <button class="document-link" type="button" data-preview="assets/Seminar.png" data-gallery="assets/Seminar.png|assets/seminar 2.png|assets/seminar 3.png" data-title="Appendix N: Pictures during Pre-service Seminar">View Images</button>
             </article>
             <article class="appendix-doc reveal">
               <span class="doc-icon">O</span>
@@ -122,7 +121,14 @@
             <article class="appendix-doc reveal">
               <span class="doc-icon">P</span>
               <h3>Code of Ethics for CAST Student Internship</h3>
-              <button class="document-link" type="button" data-preview="" data-title="Appendix P: Code of Ethics for CAST Student Internship">View Document</button>
+              <button
+                class="document-link"
+                type="button"
+                data-preview-text-id="appendix-p-code-ethics"
+                data-title="Appendix P: Code of Ethics for CAST Student Internship"
+              >
+                View Text
+              </button>
             </article>
             <article class="appendix-doc reveal">
               <span class="doc-icon">Q</span>
@@ -139,6 +145,42 @@
           </div>
         </section>
 
+        <template id="appendix-p-code-ethics">
+APPENDIX P. CODE OF ETHICS FOR CAST STUDENT INTERNSHIP
+
+Preamble:
+I will use my special knowledge for the benefit of the public. I will serve employees
+and clients with integrity, subject to an overriding responsibility to the public interest, and I
+will strive to enhance the competence and prestige of the profession. By these means:
+
+1. I will promote public knowledge understanding and appreciation of information
+technology.
+
+2. I will consider the general welfare and public good in the performance of my work.
+
+3. I will advertise goods or professional services in a clear and truthful manner.
+
+4. I will comply and strictly abide by the intellectual property laws, patent laws and other
+related laws on respect of information technology.
+
+5. I will accept full responsibility for the work undertaken and utilize skills with
+competence and professionalism.
+
+6. I will make truthful statement on my areas of competence as well as the capabilities
+and qualities of my products or services.
+
+7. I will not disclose any confidential information obtained in the course of professional
+duties without the consent of the parties concerned, except when required by law.
+
+8. I will try to attain the highest quality in both the products and services that I offer.
+
+9. I will not knowingly participate in the development of information technology system
+that promotes the commission of proud and other unlawful acts.
+
+10. I will uphold and improve the IT profession standard through continuing professional
+development in order to enhance the IT professionals.
+        </template>
+
         <footer class="footer">&copy; 2026 Mary Claire S. Valaquio. Internship Portfolio.</footer>
       </main>
     </div>
@@ -148,6 +190,7 @@
       <div class="preview-content">
         <p id="preview-title"></p>
         <img id="preview-image" src="" alt="" />
+        <div class="preview-text" id="preview-text" hidden></div>
         <div class="preview-placeholder" id="preview-placeholder" hidden>
           Preview file placeholder. Replace the filename in this card when your document is ready.
         </div>

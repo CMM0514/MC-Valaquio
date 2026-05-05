@@ -1,6 +1,7 @@
 const modal = document.querySelector("#preview-modal");
 const modalImage = document.querySelector("#preview-image");
 const modalTitle = document.querySelector("#preview-title");
+let modalText = document.querySelector("#preview-text");
 const modalPlaceholder = document.querySelector("#preview-placeholder");
 const modalClose = document.querySelector(".preview-close");
 let galleryItems = [];
@@ -68,6 +69,18 @@ function ensurePreviewLink() {
   document.querySelector(".preview-content").appendChild(previewLink);
 }
 
+function ensurePreviewText() {
+  if (modalText) {
+    return;
+  }
+
+  modalText = document.createElement("div");
+  modalText.className = "preview-text";
+  modalText.id = "preview-text";
+  modalText.hidden = true;
+  modalImage.insertAdjacentElement("afterend", modalText);
+}
+
 function updateGalleryControls() {
   ensureGalleryControls();
   const hasMultiple = galleryItems.length > 1;
@@ -86,6 +99,10 @@ function showGalleryImage(index) {
   const nextIndex = Number.isFinite(Number(index)) ? Number(index) : 0;
   galleryIndex = Math.max(0, Math.min(nextIndex, galleryItems.length - 1));
   const src = galleryItems[galleryIndex];
+
+  ensurePreviewText();
+  modalText.hidden = true;
+  modalText.textContent = "";
 
   if (src) {
     modalImage.alt = modalTitle.textContent;
@@ -109,6 +126,27 @@ function showGalleryImage(index) {
   }
 
   updateGalleryControls();
+}
+
+function openTextPreview(text, title) {
+  ensurePreviewText();
+  modalTitle.textContent = title;
+  galleryItems = [];
+  galleryIndex = 0;
+  modalImage.removeAttribute("src");
+  modalImage.hidden = true;
+  modalPlaceholder.hidden = true;
+  modalPlaceholder.style.display = "none";
+  modalText.textContent = text;
+  modalText.hidden = false;
+  ensureGalleryControls();
+  galleryControls.hidden = true;
+  ensurePreviewLink();
+  previewLink.hidden = true;
+  modal.classList.add("active");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  modalClose.focus();
 }
 
 function openPreview(src, title, gallery = []) {
@@ -139,8 +177,22 @@ fetch("sidenav.html")
   });
 
 document.addEventListener("click", (event) => {
-  const trigger = event.target.closest("[data-preview]");
+  const trigger = event.target.closest(
+    "[data-preview], [data-preview-text], [data-preview-text-id]",
+  );
   if (!trigger) {
+    return;
+  }
+
+  if (trigger.dataset.previewTextId) {
+    const source = document.getElementById(trigger.dataset.previewTextId);
+    const text = source ? source.innerHTML.trim() : "";
+    openTextPreview(text, trigger.dataset.title);
+    return;
+  }
+
+  if (trigger.dataset.previewText) {
+    openTextPreview(trigger.dataset.previewText, trigger.dataset.title);
     return;
   }
 
