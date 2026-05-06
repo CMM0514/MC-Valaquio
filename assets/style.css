@@ -181,6 +181,15 @@ a {
 }
 
 .hero-meta strong,
+.hero-meta .meta-value {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: none;
+}
+
 .info-box strong {
   display: block;
   margin-top: 5px;
