@@ -180,6 +180,13 @@ document.addEventListener("click", (event) => {
   const trigger = event.target.closest(
     "[data-preview], [data-preview-text], [data-preview-text-id]",
   );
+  const reportImage = event.target.closest(".report-documentation img");
+
+  if (!trigger && reportImage) {
+    openPreview(reportImage.getAttribute("src"), reportImage.getAttribute("alt"));
+    return;
+  }
+
   if (!trigger) {
     return;
   }
